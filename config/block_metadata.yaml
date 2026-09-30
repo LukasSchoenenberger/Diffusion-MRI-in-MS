@@ -1,0 +1,54 @@
+# Block-level technical covariates (fixation duration and storage time, days).
+# Post-mortem interval is identical for all blocks and therefore not modelled.
+
+block_72_22_1:
+  FixDur_days: 497
+  StorTime_days: 478
+
+block_72_22_5:
+  FixDur_days: 599
+  StorTime_days: 407
+
+block_72_22_8:
+  FixDur_days: 599
+  StorTime_days: 240
+
+block_72_22_9:
+  FixDur_days: 599
+  StorTime_days: 225
+
+block_72_22_12:
+  FixDur_days: 599
+  StorTime_days: 414
+
+block_72_22_18:
+  FixDur_days: 599
+  StorTime_days: 373
+
+block_72_22_20:
+  FixDur_days: 599
+  StorTime_days: 405
+
+block_72_22_23:
+  FixDur_days: 599
+  StorTime_days: 197
+
+block_72_22_25:
+  FixDur_days: 599
+  StorTime_days: 215
+
+block_72_22_35:
+  FixDur_days: 599
+  StorTime_days: 135
+
+block_72_22_37:
+  FixDur_days: 599
+  StorTime_days: 208
+
+block_72_22_38:
+  FixDur_days: 599
+  StorTime_days: 249
+
+block_72_22_41:
+  FixDur_days: 599
+  StorTime_days: 166
