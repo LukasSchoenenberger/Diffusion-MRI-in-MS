@@ -1,0 +1,52 @@
+# Selects the models and analyses run by 02_FA_models.py, 03_MD_models.py and
+# 04_sensitivity_analysis.py. Everything reported in the manuscript is enabled.
+# Existing *_idata.nc files are reused, not refitted.
+
+# Analysis variants (output directories Results/{FA,MD,Sensitivity}_<tag>)
+analysis_scope:
+  per_roi:   true    # B:  regional analysis, ROI-specific intercepts and slopes
+  global_c1: true    # C1: G2 analysis, pooled slopes, single global intercept
+  global_c2: true    # C2: G1 analysis, pooled slopes, ROI-specific intercepts
+
+FA_models:
+  F1:  true    # Axon -> FA (total)
+  F2:  true    # Coherence -> FA (total)
+  F3:  true    # Myelin -> FA (total)
+  F4:  true    # GFAP -> FA (total)
+  F5:  true    # Microglia -> FA (total)
+  F6:  true    # Cell -> FA (total)
+  F7:  true    # Axon -> FA (CDE)
+  F8:  true    # GFAP -> FA (CDE)
+  F9:  true    # Microglia -> FA (CDE)
+  F10: true    # Axon -> FA (g-computation mediation)
+
+MD_models:
+  M1:  true    # Axon -> MD (total)
+  M2:  true    # Myelin -> MD (total)
+  M3:  true    # GFAP -> MD (total)
+  M4:  true    # Microglia -> MD (total)
+  M5:  true    # Cell -> MD (total)
+  M6:  true    # Axon -> MD (CDE)
+  M7:  true    # GFAP -> MD (CDE)
+  M8:  true    # Microglia -> MD (CDE)
+  M9:  true    # Axon -> MD (g-computation mediation)
+
+# Regional analysis only, except S5, which is run for all enabled variants
+sensitivity_analyses:
+  S1_student_t:          true   # Student-t likelihood (nu = 4)
+  S2a_prior_wide:        true   # Fixed-effect priors N(0, 2.5)
+  S2b_prior_wider:       true   # Fixed-effect priors N(0, 5)
+  S3d_microglia_sqrt:    true   # sqrt transform of microglia density
+  S4_delta_n_zero:       true   # No patch-size weighting (delta_n = 0)
+  S5_hetero_vs_homo:     true   # Heteroscedastic vs homoscedastic residuals (PSIS-LOO)
+  S6_block_fixed:        true   # Block as fixed effect
+  S7_lobo:               true   # Leave-one-block-out
+  item12_proxy_validity: true   # Proxy-validity simulation (latent oligodendrocytes)
+
+# Regional analysis only
+diagnostics:
+  vif_collinearity:    true   # VIF and within-ROI predictor correlations
+  spatial_correlation: true   # Moran's I on residuals (same-block weights)
+  e_values:            true   # E-values for total effects
+  imai_rho:            true   # Imai rho sensitivity of the mediation
+  drop_one_mediator:   true   # Drop-one-mediator g-computation

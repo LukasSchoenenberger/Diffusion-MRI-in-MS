@@ -1,0 +1,16 @@
+# PyMC and ArviZ versions are those recorded in the posterior files of the reported analysis.
+name: diffusion-causal
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - pymc=5.25.1
+  - arviz=0.23.4
+  - numpy
+  - pandas
+  - xarray
+  - h5py
+  - h5netcdf
+  - matplotlib
+  - pyyaml
+  - python-docx

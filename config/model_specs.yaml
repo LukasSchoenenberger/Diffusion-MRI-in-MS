@@ -1,0 +1,169 @@
+# Estimands: target exposure and DAG-derived adjustment set per model.
+# The technical covariates (FixDur_days, StorTime_days) enter every model.
+# type: regression   -> hierarchical regression (02_FA_models.py / 03_MD_models.py)
+# type: gcomputation -> mediation of the axon effect by Monte Carlo g-computation
+
+FA:
+  F1:
+    label: "Axon -> FA (total)"
+    exposure: axon_density
+    adjustment: []
+    type: regression
+
+  F2:
+    label: "Coherence -> FA (total)"
+    exposure: axon_coherence
+    adjustment:
+      - axon_density
+    type: regression
+
+  F3:
+    label: "Myelin -> FA (total)"
+    exposure: myelin_density
+    adjustment:
+      - axon_density
+      - cell_density
+      - gfap_density
+      - microglia_density
+    type: regression
+
+  F4:
+    label: "GFAP -> FA (total)"
+    exposure: gfap_density
+    adjustment: []
+    type: regression
+
+  F5:
+    label: "Microglia -> FA (total)"
+    exposure: microglia_density
+    adjustment: []
+    type: regression
+
+  F6:
+    label: "Cell -> FA (total)"
+    exposure: cell_density
+    adjustment:
+      - axon_density
+      - gfap_density
+      - microglia_density
+      - myelin_density
+    type: regression
+
+  F7:
+    label: "Axon -> FA (CDE)"
+    exposure: axon_density
+    adjustment:
+      - myelin_density
+      - axon_coherence
+      - cell_density
+      - gfap_density
+      - microglia_density
+    type: regression
+
+  F8:
+    label: "GFAP -> FA (CDE excl. Cell)"
+    exposure: gfap_density
+    adjustment:
+      - cell_density
+      - axon_density
+      - microglia_density
+      - myelin_density
+    type: regression
+
+  F9:
+    label: "Microglia -> FA (CDE excl. Cell)"
+    exposure: microglia_density
+    adjustment:
+      - cell_density
+      - axon_density
+      - gfap_density
+      - myelin_density
+    type: regression
+
+  F10:
+    label: "Axon -> FA (mediation via g-computation)"
+    exposure: axon_density
+    mediators:
+      - myelin_density
+      - axon_coherence
+      - cell_density
+    outcome_model: F7
+    type: gcomputation
+
+MD:
+  M1:
+    label: "Axon -> MD (total)"
+    exposure: axon_density
+    adjustment: []
+    type: regression
+
+  M2:
+    label: "Myelin -> MD (total)"
+    exposure: myelin_density
+    adjustment:
+      - axon_density
+      - cell_density
+      - gfap_density
+      - microglia_density
+    type: regression
+
+  M3:
+    label: "GFAP -> MD (total)"
+    exposure: gfap_density
+    adjustment: []
+    type: regression
+
+  M4:
+    label: "Microglia -> MD (total)"
+    exposure: microglia_density
+    adjustment: []
+    type: regression
+
+  M5:
+    label: "Cell -> MD (total)"
+    exposure: cell_density
+    adjustment:
+      - axon_density
+      - gfap_density
+      - microglia_density
+      - myelin_density
+    type: regression
+
+  M6:
+    label: "Axon -> MD (CDE)"
+    exposure: axon_density
+    adjustment:
+      - myelin_density
+      - cell_density
+      - gfap_density
+      - microglia_density
+    type: regression
+
+  M7:
+    label: "GFAP -> MD (CDE excl. Cell)"
+    exposure: gfap_density
+    adjustment:
+      - cell_density
+      - axon_density
+      - microglia_density
+      - myelin_density
+    type: regression
+
+  M8:
+    label: "Microglia -> MD (CDE excl. Cell)"
+    exposure: microglia_density
+    adjustment:
+      - cell_density
+      - axon_density
+      - gfap_density
+      - myelin_density
+    type: regression
+
+  M9:
+    label: "Axon -> MD (mediation via g-computation)"
+    exposure: axon_density
+    mediators:
+      - myelin_density
+      - cell_density
+    outcome_model: M6
+    type: gcomputation

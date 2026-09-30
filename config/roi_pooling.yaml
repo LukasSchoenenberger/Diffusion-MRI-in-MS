@@ -1,0 +1,62 @@
+# Pooling of annotated ROI names (sub_patch prefix) into the analysed ROI types.
+
+WM:
+  - WM
+
+Cortex_1:
+  - Cortex_1
+
+Cortex_2:
+  - Cortex_2
+
+Cortex_3:
+  - Cortex_3
+  - Cortex_4
+
+Granular:
+  - Granular
+
+Molecular:
+  - Molecular
+
+dirtyWM:
+  - dirtyWM
+
+Repair:
+  - Repair
+
+Perilesion:
+  - PV_perilesional_rim
+  - WM_perilesional_rim
+  - JC_perilesional_rim
+  - SC_perilesional_rim
+
+Surrounding_WM:
+  - PV_surrounding_wm
+  - WM_surrounding_wm
+  - SC_surrounding_wm
+  - JC_surrounding_wm
+
+Lesion_core:
+  - PV_lesion_core
+  - JC_lesion_core
+  - SC_lesion_core
+
+Cortex_partial_demyel:
+  - SP_part_demyel
+  - IC_part_demyel
+  - CCL_part_demyel
+
+Cortex_diffuse_demyel:
+  - SP_diffuse_demyel
+  - CCL_diffuse_demyel
+  - LCL_diffuse_demyel
+  - IC_diffuse_demyel
+  - SP_lesion_core
+  - IC_lesion_core
+
+WM_partial_demyel:
+  - PV_part_demyel
+  - WM_partial_demyel
+  - WM_part_demyel
+  - JC_partial_demyel
